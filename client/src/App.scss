@@ -1,0 +1,148 @@
+* {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@mixin absolute-center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.App {
+  position: relative;
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: rgb(219, 221, 227);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  overflow: hidden;
+  transition: background 1200ms ease-in-out;
+
+  &.dark {
+    background-color: rgb(55, 60, 77);
+  }
+
+  >div {
+    border-radius: 10px;
+  }
+}
+
+a,
+a:active {
+  text-decoration: none;
+}
+
+
+button {
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+input {
+  position: relative;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  width: 100%;
+}
+
+input[type=date] {
+  height: 33px;
+}
+
+input[type=radio],
+input[type=checkbox] {
+  width: auto;
+}
+
+.input-message {
+  position: absolute;
+  bottom: -1.2rem;
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+  color: grey;
+
+  &-error {
+    color: red;
+  }
+}
+
+.container {
+  position: relative;
+  min-width: 35vw;
+  background: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &.auto-size {
+    width: auto;
+    height: auto;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+
+    h3 {
+      margin-bottom: 0.3rem;
+    }
+
+    .month,
+    .id {
+      color: #777;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+  }
+}
+
+.keyword {
+  color: #5a4ba0;
+}
+
+.transactions-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.master-amount {
+  font-size: 2.5rem;
+
+  @media only screen and (max-width: 1530px) {
+    font-size: 2rem;
+  }
+}
+
+select {
+  padding: 0 0.5rem;
+  height: 33px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
