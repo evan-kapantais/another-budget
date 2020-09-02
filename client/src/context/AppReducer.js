@@ -113,8 +113,6 @@ export default (state, action) => {
 				`budget.${action.payload.sum}`,
 				JSON.stringify(action.payload.amount)
 			);
-
-			console.log(action.payload.sum, action.payload.amount);
 			return {
 				...state,
 				[action.payload.sum]: action.payload.amount,

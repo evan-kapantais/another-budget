@@ -86,12 +86,16 @@ const NewTransactionOverlay = () => {
 		handlePanel,
 		addMenu,
 		transactions,
-		getValue,
+		getValues,
+		additionalCategories,
+		additionalTypes,
 	} = useContext(GlobalContext);
 
 	useEffect(() => {
-		getValue('transactions');
+		getValues('transactions', 'additionalCategories', 'additionalTypes');
 	}, []);
+
+	console.table(additionalCategories, additionalTypes);
 
 	const d = new Date();
 
@@ -213,8 +217,11 @@ const NewTransactionOverlay = () => {
 								/>
 								<datalist id='type'>
 									<option value='Card' />
-									<option value='Card' />
+									<option value='Cash' />
 									<option value='Fees' />
+									{/* {additionalTypes !== null ||
+										(additionalTypes.length > 0 &&
+											additionalTypes.map((t) => <option value={t} />))} */}
 								</datalist>
 								<p>
 									Defaults to <span>Card</span>
@@ -230,12 +237,8 @@ const NewTransactionOverlay = () => {
 									onChange={(e) => setCategory(e.target.value)}
 								/>
 								<datalist id='category'>
-									<option value='Drinks' />
-									<option value='Food' />
-									<option value='Fees' />
-									<option value='Smoking' />
-									<option value='Transportation' />
-									<option value='Purchases' />
+									{/* {additionalCategories.length > 0 &&
+										additionalCategories.map((c) => <option value={c} />)} */}
 								</datalist>
 								<p>
 									Defaults to <span>General</span>

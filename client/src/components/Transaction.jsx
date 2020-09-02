@@ -18,6 +18,12 @@ const Comp = styled.div`
 	padding: 1.5rem 0;
 	color: #fff;
 	border-bottom: 1px solid rgba(232, 232, 232, 0.2);
+	transition: all 200ms ease-in-out;
+
+	/* &:hover {
+		cursor: pointer;
+		transform: translateY(-3px) scale(1.01);
+	} */
 
 	&:last-of-type {
 		border-bottom: none;

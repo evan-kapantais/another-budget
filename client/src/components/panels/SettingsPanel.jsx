@@ -14,7 +14,6 @@ const Comp = styled.div`
 	width: 25vw;
 	border-radius: 10px;
 	background: #fff;
-	box-shadow: 0 0 10px lightgrey;
 	opacity: ${(props) => (props.open ? 1 : 0)};
 	transition: all 500ms ease-in-out;
 
@@ -237,14 +236,6 @@ const SettingsPanel = () => {
 									)
 								}
 							/>
-						</div>
-						<div className='theme-selector'>
-							<div className='theme-button theme-button-dark theme-button-active'>
-								<h2>Dark</h2>
-							</div>
-							<div className='theme-button theme-button-light'>
-								<h2>Light</h2>
-							</div>
 						</div>
 					</section>
 				</main>

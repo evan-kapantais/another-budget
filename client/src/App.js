@@ -14,10 +14,13 @@ import NewUser from './components/panels/NewUser';
 import Dev from './components/panels/Dev';
 
 const App = () => {
-	const { isNewUser, getValue } = useContext(GlobalContext);
+	const { isNewUser, getValue, setSum } = useContext(GlobalContext);
 
 	useEffect(() => {
 		getValue(entries.isNewUser);
+
+		setSum('additionalCategories', []);
+		setSum('additionalTypes', []);
 	}, [isNewUser]);
 
 	return (

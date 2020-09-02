@@ -13,6 +13,18 @@ const initialState = {
 	// Past data
 	months: [],
 
+	// Expenses categories
+	additionalCategories: [
+		'Drinks',
+		'Food',
+		'Fees',
+		'Smoking',
+		'Transportation',
+		'Purchases',
+	],
+
+	additionalTypes: ['Card', 'Cash', 'Fees'],
+
 	// Financials
 	transactions: [],
 	bankBalance: 0,
@@ -221,6 +233,10 @@ export const GlobalProvider = ({ children }) => {
 				// User info
 				userDisplayName: state.userDisplayName,
 				userEmail: state.userEmail,
+
+				// Expenses categories
+				additionalCategories: state.additionalCategories,
+				additionalTypes: state.additionalTypes,
 
 				// Past data
 				months: state.months,
