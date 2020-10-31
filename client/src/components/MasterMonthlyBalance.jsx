@@ -1,70 +1,11 @@
 import React, { useContext, useEffect } from 'react';
-import styled from 'styled-components';
-
 import Card from './Card';
 import { GlobalContext } from '../context/GlobalContext';
 import { Link } from 'react-router-dom';
-import themes from '../data/themes';
 import MoreButton from './MoreButton';
-
-const Component = styled.div`
-	position: relative;
-	height: 100%;
-	padding: 1rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-
-	header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-
-	main {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-
-		div:last-of-type {
-			/* text-align: right; */
-
-			p {
-				margin-bottom: 0.5rem;
-			}
-		}
-	}
-
-	.income-expenses {
-		font-size: 0.85rem;
-		font-weight: 600;
-		text-align: right;
-	}
-
-	.income {
-		color: ${(props) => themes[props.theme].positive};
-		margin-right: 0.5rem;
-	}
-
-	.expenses {
-		color: ${(props) => themes[props.theme].negative};
-	}
-
-	.footer {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-	/* 
-	.starting {
-		mix-blend-mode: difference;
-		color: rgba(255, 255, 255, 0.8);
-	} */
-`;
 
 export const MasterMonthlyBalance = () => {
 	const {
-		settings,
 		monthlyBalance,
 		getValue,
 		getTransactions,
@@ -97,7 +38,7 @@ export const MasterMonthlyBalance = () => {
 
 	return (
 		<Card column='2 / 3' row='1 / 4'>
-			<Component theme={settings.theme}>
+			<div className='card-content' id='content-master-monthly-balance'>
 				<header>
 					<Link to='/month-overview'>
 						<MoreButton padding='padding-right'>
@@ -116,12 +57,8 @@ export const MasterMonthlyBalance = () => {
 						</p>
 						<h1 className='master-amount'>{balance.toFixed(2)} €</h1>
 					</div>
-					{/* <div className='starting'>
-						<p>Starting Budget</p>
-						<h3>{monthlyBalance.toFixed(2)} €</h3>
-					</div> */}
 				</main>
-			</Component>
+			</div>
 		</Card>
 	);
 };
