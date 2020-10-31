@@ -144,8 +144,6 @@ const SettingsPanel = () => {
 		settings,
 		handleSettingChange,
 		setSum,
-		devPurge,
-		getValue,
 		getValues,
 	} = useContext(GlobalContext);
 

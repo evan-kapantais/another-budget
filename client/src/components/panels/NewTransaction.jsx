@@ -70,11 +70,12 @@ const Component = styled.div`
 	}
 
 	footer {
-		button {
-			margin-right: 0.5rem;
+		display: flex;
+		justify-content: space-between;
 
-			&:last-of-type {
-				margin-right: 0;
+		div {
+			button:first-of-type {
+				margin-right: 0.5rem;
 			}
 		}
 	}
@@ -276,21 +277,23 @@ const NewTransactionOverlay = () => {
 						</div>
 					</main>
 					<footer>
-						<MainButton type='submit'>Submit</MainButton>
 						<MainButton
 							type='button'
 							onClick={() => handlePanel('addMenu', false)}
-							className='btn-negative'
+							className='btn-negative-simple'
 						>
 							Cancel
 						</MainButton>
-						<MainButton
-							type='button'
-							onClick={() => prefillForm()}
-							className='btn-default'
-						>
-							Prefill Form
-						</MainButton>
+						<div>
+							<MainButton
+								type='button'
+								onClick={() => prefillForm()}
+								className='btn-default'
+							>
+								Prefill Form
+							</MainButton>
+							<MainButton type='submit'>Submit</MainButton>
+						</div>
 					</footer>
 				</form>
 			</div>

@@ -12,6 +12,17 @@ const Button = styled.button`
 	color: #fff;
 	transition: background 200ms ease;
 
+	&.btn-negative-simple {
+		padding: 0;
+		border-radius: 0;
+		font-weight: 400;
+		color: #d9455f;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
 	&.small {
 		font-size: 0.8rem;
 		padding: 0.4rem 0.8rem;

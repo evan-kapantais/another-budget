@@ -17,6 +17,10 @@ const Comp = styled.div`
 	grid-column: 3 / -1;
 	grid-row: 1 / -1;
 
+	::-webkit-scrollbar {
+		width: 0;
+	}
+
 	header {
 		display: flex;
 		justify-content: space-between;
@@ -52,7 +56,7 @@ const Comp = styled.div`
 
 	.add-transaction-container {
 		text-align: right;
-		margin-bottom: 0.5rem;
+		margin-bottom: 2rem;
 	}
 `;
 

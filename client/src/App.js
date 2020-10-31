@@ -1,12 +1,7 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { GlobalContext } from './context/GlobalContext';
 import entries from './data/storedEntries';
-import {
-	BrowserRouter as Router,
-	Route,
-	Switch,
-	Redirect,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import './App.scss';
 import Home from './pages/Home';

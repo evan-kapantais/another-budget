@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import { GlobalContext } from '../context/GlobalContext';
 import Category from './Category';
-import TransactionMenu from './TransactionMenu';
 import { getDisplayDate } from '../helpers/date';
 import { numberWithCommas } from '../helpers/display';
 import themes from '../data/themes';
@@ -11,19 +10,20 @@ import themes from '../data/themes';
 const Comp = styled.div`
 	position: relative;
 	display: grid;
-	grid-template-columns: 1fr 2fr 1fr 2fr 100px 40px;
+	grid-template-columns: 1fr 2fr 1fr 2fr 100px;
 	align-items: center;
 	font-size: 0.9rem;
 	font-weight: 600;
-	padding: 1.5rem 0;
+	padding: 1.5rem 1rem;
+	border-radius: 10px;
 	color: #fff;
-	border-bottom: 1px solid rgba(232, 232, 232, 0.2);
-	transition: all 200ms ease-in-out;
+	transition: all 200ms ease;
 
-	/* &:hover {
+	&:hover {
 		cursor: pointer;
-		transform: translateY(-3px) scale(1.01);
-	} */
+		transform: translateY(-2px) scale(1.01);
+		background: rgba(0, 0, 0, 0.3);
+	}
 
 	&:last-of-type {
 		border-bottom: none;
@@ -87,14 +87,19 @@ const Comp = styled.div`
 const Transaction = ({ transaction }) => {
 	const { date, name, type, category, amount } = transaction;
 	const [menuShown, setMenuShown] = useState(false);
-	const { settings, getSettings } = useContext(GlobalContext);
+	const { settings, getSettings, handlePanel } = useContext(GlobalContext);
 
 	useEffect(() => {
 		getSettings();
 	}, []);
 
 	return (
-		<Comp theme={settings.theme} onMouseLeave={() => setMenuShown(false)}>
+		<Comp
+			theme={settings.theme}
+			onClick={() => handlePanel('editMenu', true, transaction.id)}
+			onMouseLeave={() => setMenuShown(false)}
+			draggable
+		>
 			<div className='date'>
 				<p>{getDisplayDate(date)}</p>
 			</div>
@@ -117,7 +122,7 @@ const Transaction = ({ transaction }) => {
 					{numberWithCommas(amount.toFixed(2))} €
 				</p>
 			</div>
-			<button
+			{/* <button
 				type='button'
 				className='arrow'
 				onMouseOver={() => setMenuShown(true)}
@@ -128,7 +133,7 @@ const Transaction = ({ transaction }) => {
 				transaction={transaction}
 				menuShown={menuShown}
 				setMenuShown={setMenuShown}
-			/>
+			/> */}
 		</Comp>
 	);
 };

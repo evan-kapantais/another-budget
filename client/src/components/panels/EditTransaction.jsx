@@ -40,8 +40,13 @@ const Comp = styled.div`
 	}
 
 	footer {
-		button:first-of-type {
-			margin-right: 0.5rem;
+		display: flex;
+		justify-content: space-between;
+
+		> div {
+			button:first-of-type {
+				margin-right: 0.5rem;
+			}
 		}
 	}
 `;
@@ -166,6 +171,11 @@ const EditTransaction = () => {
 							<div>
 								<label>Amount</label>
 								<input
+									style={{
+										color: `${
+											amount < 0 ? 'red' : amount > 0 ? 'green' : 'auto'
+										}`,
+									}}
 									type='number'
 									step='0.01'
 									value={amount}
@@ -175,14 +185,23 @@ const EditTransaction = () => {
 						</div>
 					</main>
 					<footer>
-						<MainButton type='submit'>Submit</MainButton>
 						<MainButton
+							className='btn-negative-simple'
 							type='button'
 							onClick={() => handlePanel('editMenu', false, null)}
-							className='btn-negative'
 						>
 							Cancel
 						</MainButton>
+						<div>
+							<MainButton
+								type='button'
+								onClick={() => deleteTransaction(transaction.id)}
+								className='btn-negative'
+							>
+								Delete Transaction
+							</MainButton>
+							<MainButton type='submit'>Submit</MainButton>
+						</div>
 					</footer>
 				</form>
 			</div>
