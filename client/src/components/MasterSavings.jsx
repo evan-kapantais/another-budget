@@ -21,7 +21,7 @@ export const MasterSavings = () => {
 		additionalSavings > 0 ? (100 * additionalSavings) / savings : 0;
 
 	return (
-		<Card column='1 / 2' row='5 / 7' id='savings'>
+		<Card id='savings'>
 			<div className='card-content' id='content-master-savings'>
 				<header>
 					<MoreButton

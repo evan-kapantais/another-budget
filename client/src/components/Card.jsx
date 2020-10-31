@@ -6,8 +6,6 @@ import { GlobalContext } from '../context/GlobalContext';
 
 const Comp = styled.div`
 	position: relative;
-	grid-row: ${(props) => props.row};
-	grid-column: ${(props) => props.column};
 	border-radius: 10px;
 	box-shadow: ${(props) => themes[props.settings.theme].shadow};
 	overflow: hidden;
@@ -38,7 +36,7 @@ const Comp = styled.div`
 `;
 
 const Card = ({ children, column, row, id }) => {
-	const { settings, getSettings, getValue } = useContext(GlobalContext);
+	const { settings, getSettings } = useContext(GlobalContext);
 	const random = Math.floor(Math.random() * 500);
 
 	useEffect(() => {

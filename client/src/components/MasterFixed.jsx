@@ -15,7 +15,7 @@ export const MasterSavings = () => {
 	const totalFixed = rent + power + water + telephony;
 
 	return (
-		<Card column='2 / 3' row='4 / 7' id='fixed'>
+		<Card id='fixed'>
 			<div className='card-content' id='content-master-fixed'>
 				<header>
 					<MoreButton

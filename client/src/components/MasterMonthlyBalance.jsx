@@ -37,7 +37,7 @@ export const MasterMonthlyBalance = () => {
 	const balance = monthlyBalance + income + expenses;
 
 	return (
-		<Card column='2 / 3' row='1 / 4'>
+		<Card id='monthly-balance'>
 			<div className='card-content' id='content-master-monthly-balance'>
 				<header>
 					<Link to='/month-overview'>
